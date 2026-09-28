@@ -1,0 +1,5 @@
+[
+  { "id": "CAM01", "name": "Junction 01", "lat": 18.62, "lng": 73.80 },
+  { "id": "CAM02", "name": "Junction 02", "lat": 18.63, "lng": 73.82 },
+  { "id": "CAM03", "name": "Junction 03", "lat": 18.65, "lng": 73.84 }
+]

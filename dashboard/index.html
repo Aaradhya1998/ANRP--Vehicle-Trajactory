@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANPR City Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>ANPR City Tracker</h1>
+      <div class="status-container">
+        <span id="status-dot" class="status-dot offline"></span>
+        <span id="status-text">Connecting...</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="top-row">
+      <!-- ALERT CONSOLE -->
+      <section class="section alert-section">
+        <div class="section-header">
+          <h2>Alert Console</h2>
+          <span id="alert-count" class="badge badge-neutral">0 active</span>
+        </div>
+        <div id="alert-console" class="alert-list">
+          <p class="empty-msg">No unacknowledged alerts.</p>
+        </div>
+      </section>
+
+      <!-- CAMERA DENSITY -->
+      <section class="section density-section">
+        <div class="section-header">
+          <h2>Camera Traffic Density</h2>
+        </div>
+        <div id="density-container" class="density-grid">
+          <p class="empty-msg">Loading density metrics...</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- PLATE SEARCH -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Plate Trajectory Search</h2>
+      </div>
+      <form id="search-form" class="search-box">
+        <input type="text" id="plate-input" placeholder="Enter License Plate (e.g. MH12AB1234)" required />
+        <button type="submit">Search Trajectory</button>
+      </form>
+      <div class="table-responsive">
+        <table id="trajectory-table">
+          <thead>
+            <tr>
+              <th>Camera ID</th>
+              <th>Timestamp</th>
+              <th>Calculated Speed</th>
+            </tr>
+          </thead>
+          <tbody id="trajectory-tbody">
+            <tr>
+              <td colspan="3" class="empty-cell">Enter a plate number to search history.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- LIVE DETECTIONS -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Live Detections</h2>
+      </div>
+      <div class="table-responsive">
+        <table id="detections-table">
+          <thead>
+            <tr>
+              <th>Event ID</th>
+              <th>Plate Number</th>
+              <th>Camera ID</th>
+              <th>Latitude</th>
+              <th>Longitude</th>
+              <th>Timestamp</th>
+              <th>Confidence</th>
+            </tr>
+          </thead>
+          <tbody id="detections-tbody">
+            <tr>
+              <td colspan="7" class="empty-cell">Loading detections...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
